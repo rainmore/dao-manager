@@ -1,0 +1,38 @@
+description = 'Dao Manager'
+//group = 'com.worldmanager'
+version = '0.1'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    def log4jVersion = '2.0-beta8'
+    def slf4jVersion = '1.7.+'
+    // log
+    compile group: 'org.slf4j',                name: 'slf4j-api',        version: slf4jVersion
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api',        version: log4jVersion
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core',       version: log4jVersion
+    compile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: log4jVersion
+
+    // mysql jdbc
+    runtime group: 'mysql',                    name: 'mysql-connector-java', version: '5.1.26'
+
+    // config
+    compile group: 'com.typesafe',             name: 'config',           version: '1.0.2'
+
+    // other
+    compile group: 'joda-time',                name: 'joda-time',        version: '2.1'
+    compile group: 'org.apache.commons',       name: 'commons-lang3',    version: '3.1'
+}
